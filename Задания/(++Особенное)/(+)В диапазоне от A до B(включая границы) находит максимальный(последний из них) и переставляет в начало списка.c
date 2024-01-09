@@ -1,4 +1,5 @@
 // Если их несколько, то последний из них
+// Если первый из них, то: if(cur->Value > max && cur->Value >= a && cur->Value <= b)
 struct List* func(int a, int b)
 {
 	struct List* cur, *cur_next, *max_last;
