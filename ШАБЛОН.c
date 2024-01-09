@@ -3,29 +3,29 @@
 
 struct List
 {
-	int data;
+	int Value;
 	struct List* Next;
-} *F;
+} *First;
 
 void addToList(int value)
 {
     struct List* new_node = malloc(sizeof(struct List));
 	
-    new_node->data = value;
+    new_node->Value = value;
     new_node->Next = NULL;
 	
-    if (F == NULL)
+    if(First == NULL)
 	{
-        F = new_node;
+        First = new_node;
         return;
     }
 	
-    struct List* current = F;
-    while (current->Next != NULL)
+    struct List* cur = First;
+    while(cur->Next != NULL)
 	{
-        current = current->Next;
+        cur = cur->Next;
     }
-    current->Next = new_node;
+    cur->Next = new_node;
 }
 
 // void func() {...}
@@ -35,27 +35,27 @@ int main()
 	int array[] = {3,1,4,1,6,1,1}; 
 	int i, j;
 	
-	for (i = 0; i < sizeof(array)/sizeof(array[0]); i++)
+	for(i = 0; i < sizeof(array)/sizeof(array[0]); i++)
 	{
 		addToList(array[i]);
 	}
 	
-	struct List* current = F;
-	while (current) // Первый вывод
+	struct List* cur = First;
+	while(cur != NULL) // Первый вывод
 	{
-		printf("%d ", current->data);
-		current = current->Next;
+		printf("%d ", cur->Value);
+		cur = cur->Next;
 	}
 	
 	printf("\n");
 	func();
 	printf("\n");
 	
-	current = F;
-	while (current) // Первый вывод
+	cur = First;
+	while(cur != NULL) // Второй вывод
 	{
-		printf("%d ", current->data);
-		current = current->Next;
+		printf("%d ", cur->Value);
+		cur = cur->Next;
 	}
 
 	return 0;

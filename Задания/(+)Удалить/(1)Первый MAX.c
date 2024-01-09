@@ -1,28 +1,28 @@
-void func()
+struct List* func()
 { 
 	struct List *cur, *cur_next;
 	int max;
 	
-	if(F == NULL) // Если список пуст
-		return;
+	if(First == NULL) // Если список пуст
+		return First;
 	
 	// Поиск максимального элемента
-	max = F->data;
-	for(cur = F->Next; cur != NULL; cur = cur->Next) // F пропускаем
-		if(cur->data > max) 
-			max = cur->data;	
+	max = First->Value;
+	for(cur = First->Next; cur != NULL; cur = cur->Next) // First пропускаем
+		if(cur->Value > max) 
+			max = cur->Value;	
 		
-	if(F->data == max) // Если первый
+	if(First->Value == max) // Если первый
 	{
-		cur = F; // Для препода
-		F = F->Next;
+		cur = First; // Для препода
+		First = First->Next;
 	}
 	else // Если не первый
 	{
-		for(cur = F; cur->Next != NULL; cur = cur->Next)
+		for(cur = First; cur->Next != NULL; cur = cur->Next)
 		{
 			cur_next = cur->Next;
-			if(cur_next->data == max)
+			if(cur_next->Value == max)
 			{
 				cur->Next = cur_next->Next; // Удаление
 				break;
@@ -30,5 +30,5 @@ void func()
 		}
 	}
 	
-	return;
+	return First;
 }
