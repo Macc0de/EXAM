@@ -9,16 +9,14 @@ int func()
 	cur = First;
 	while(cur != NULL && cur->Next != NULL)
 	{
-		if((cur->Value >= 0 && cur->Next->Value >= 0) || (cur->Value < 0 && cur->Next->Value < 0))
+		if(cur->Value == cur->Next->Value)
 		{
 			cur_len++;
 		}
 		else
 		{
 			if(cur_len > max_len)
-			{
 				max_len = cur_len;
-			}
 			cur_len = 1; // Сброс
 		}
 		
