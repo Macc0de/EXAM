@@ -1,3 +1,4 @@
+// Шаблон для задания по Спискам
 #include <stdio.h>
 #include <stdlib.h>
 
